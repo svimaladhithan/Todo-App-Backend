@@ -7,13 +7,13 @@ use Illuminate\Http\Request;
 
 class TodoController extends Controller
 {
-    // Display a listing of the resource (Read)
+    // Display a listing of the resource
     public function index()
     {
-        return Todo::all(); // Fetch all TODOs
+        return Todo::all();
     }
 
-    // Store a newly created resource in storage (Create)
+    // Store a newly created todo in storage
     public function store(Request $request)
     {
         $validatedData = $request->validate([
@@ -25,13 +25,13 @@ class TodoController extends Controller
         return response()->json($todo, 201);
     }
 
-    // Display the specified resource (Read one)
+    // Display the specified resource
     public function show(Todo $todo)
     {
         return $todo;
     }
 
-    // Update the specified resource in storage (Update)
+    // Update the specified todo in storage
     public function update(Request $request, Todo $todo)
     {
         $validatedData = $request->validate([
@@ -43,7 +43,7 @@ class TodoController extends Controller
         return response()->json($todo);
     }
 
-    // Remove the specified resource from storage (Delete)
+    // Remove the specified todo from storage (Delete)
     public function destroy(Todo $todo)
     {
         $todo->delete();
